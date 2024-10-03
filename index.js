@@ -20,7 +20,32 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
-
+headerBoardName: document.getElementById('header-board-name'),
+hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
+showSideBarBtn: document.getElementById('show-side-bar-btn'),
+themeSwitch: document.getElementById('switch'),
+createNewTaskBtn: document.getElementById('add-new-task-btn'),
+modalWindow: document.getElementById('new-task-modal-window'),
+filterDiv: document.getElementById('filterDiv'),  // fetch all task columns
+columnDivs: document.querySelectorAll('.column-div'),
+boardsNavLinksDiv: document.getElementById('boards-nav-links-div'), //Board Nav
+logoMobile: document.querySelector('.logo-mobile'), //Mobile view logo
+todoTaskContainer: document.querySelector('[data-status="todo"].task-container'),
+doingTaskContainer: document.querySelector('[data-status="doing"].task-container'),
+doneTaskContainer: document.querySelector('[data-status="done"].task-container'),
+newTaskTitleInput: document.getElementById('title-input'), // New task input
+newTaskDescInput: document.getElementById('desc-input'), // New task desc input
+newTaskStatusSelect: document.getElementById("select-status"), // dropdown selection
+cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'), // cancel button for new task modal
+editTaskModal: document.querySelector('.edit-task-modal-window'), //modal window edit
+editTaskForm: document.getElementById('edit-task-form'),
+editTaskTitleInput: document.getElementById('edit-task-title-input'),
+editTaskDescInput: document.getElementById('edit-task-desc-input'),
+editTaskStatusSelect: document.getElementById('edit-select-status'),
+saveTaskChangesBtn: document.getElementById('save-task-changes-btn'), //save task button
+cancelEditTaskBtn: document.getElementById('cancel-edit-btn'), //cancel task button
+deleteTaskBtn: document.getElementById('delete-task-btn'), //delete task button
+addTaskForm: document.getElementById('new-task-modal-window')
 }
 
 let activeBoard = ""
