@@ -1,5 +1,7 @@
+// TASK: import helper functions from utils
 import {getTasks, createNewTask, deleteTask, putTask, patchTask} from './utils/taskFunctions.js';
-import {initialData} from './initialData.js';
+// TASK: import initialData
+import {initialData} from './initialData.js'
 
 
 /*************************************************************************************************************************************************
@@ -229,7 +231,11 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
-      
+      Id:  Date.now(),
+      title: document.getElementById("titlte-input").value,
+      description: document.getElementById("desc-input").value,
+      board: activeBoard,
+
     };
     const newTask = createNewTask(task);
     if (newTask) {
