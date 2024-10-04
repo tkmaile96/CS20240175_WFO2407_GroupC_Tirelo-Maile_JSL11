@@ -209,10 +209,13 @@ function setupEventListeners() {
   });
 
   // Add new task form submission event listener
-  elements.modalWindow.addEventListener('submit',  (event) => {
+  elements.addTaskForm.addEventListener('submit',  (event) => {
     addTask(event)
   });
+
+
 }
+
 
 // Toggles tasks modal
 // Task: Fix bugs
@@ -231,12 +234,16 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
-      Id:  Date.now(),
-      title: document.getElementById("titlte-input").value,
+      id: Date.now(),
+      title: document.getElementById("title-input").value,
       description: document.getElementById("desc-input").value,
+      status: document.getElementById("select-status").value,
       board: activeBoard,
 
     };
+    console.log(task);
+
+
     const newTask = createNewTask(task);
     if (newTask) {
       addTaskToUI(newTask);
@@ -305,22 +312,15 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const tasks = getTasks();
-  const updatedTasks = tasks.map((task) => {
-    if (task.id === taskId) {
-      task.title = document.getElementById("edit-task-title-input").value;
-      task.description = document.getElementById("edit-task-desc-input").value;
-      task.status = document.getElementById("edit-select-status").value;
-
-    }
-    return task;
-  })
-
-  // Create an object with the updated task details
-localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-toggleModal(false, elements.editTaskModal);
-console.log(localStorage.getItem("task"));
-
+ const updatedTask = {
+  id: taskId,
+  title: elements.editTaskTitleInput.value,
+  description: elements.editTaskDescInput.value,
+  status: elements.editTaskStatusSelect.value,
+  board: activeBoard,
+ }
+ putTask(updatedTask);
+ toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
 }
 
