@@ -267,8 +267,7 @@ function toggleTheme() {
 
  const isLightTheme = document.body.classList.contains("light-theme");
 
- localStorage.setItem("light-theme", isLightTheme ? "enable" :  "disable");
-
+ localStorage.setItem("light-theme", isLightTheme ? "enable" : "disable" );
 }
 
 
