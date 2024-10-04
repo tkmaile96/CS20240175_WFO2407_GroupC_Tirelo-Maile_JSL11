@@ -249,8 +249,15 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
- const sidebar  = document.getElementById('side-bar');
+ const sidebar  = document.getElementById('sidebar');
+ const showSideBarBtn  = document.getElementById('show-side-bar-btn');
+
  localStorage.setItem("showSideBar", show ? "true" :  "false");
+
+ sidebar.style.display = show ? 'block' : 'none';
+
+ showSideBarBtn.style.display = show ?  'none' : 'block';
+
 
 
 }
@@ -274,7 +281,7 @@ function openEditTaskModal(task) {
   // Get button elements from the task modal
   const saveTaskChangesBtn =  document.getElementById("save-task-changes-btn");
   const deleteTaskBtn  = document.getElementById("delete-task-btn");
-  const cancelEditBtn =  document.getElementById("cancel-edit-task-btn");
+ 
 
   // Call saveTaskChanges upon click of Save Changes button
  saveTaskChangesBtn.addEventListener('click', () => {
@@ -294,12 +301,23 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  
+  const tasks = getTasks();
+  const updatedTasks = tasks.map((task) => {
+    if (task.id === taskId) {
+      task.title = document.getElementById("edit-task-title-input").value;
+      task.description = document.getElementById("edit-task-desc-input").value;
+      task.status = document.getElementById("edit-select-status").value;
+
+    }
+    return task;
+  })
 
   // Create an object with the updated task details
+localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+toggleModal(false, elements.editTaskModal);
+console.log(localStorage.getItem("task"));
 
-
-  // Update task using a hlper functoin
+  // Update task using a hlper function
  
 
   // Close the modal and refresh the UI to reflect the changes
