@@ -263,7 +263,12 @@ function toggleSidebar(show) {
 }
 
 function toggleTheme() {
- document.body.classList.toggle("dark-theme");
+ document.body.classList.toggle("light-theme");
+
+ const isLightTheme = document.body.classList.contains("light-theme");
+
+ localStorage.setItem("light-theme", isLightTheme ? "enable" :  "disable");
+
 }
 
 
@@ -316,11 +321,6 @@ function saveTaskChanges(taskId) {
 localStorage.setItem("tasks", JSON.stringify(updatedTasks));
 toggleModal(false, elements.editTaskModal);
 console.log(localStorage.getItem("task"));
-
-  // Update task using a hlper function
- 
-
-  // Close the modal and refresh the UI to reflect the changes
 
   refreshTasksUI();
 }
