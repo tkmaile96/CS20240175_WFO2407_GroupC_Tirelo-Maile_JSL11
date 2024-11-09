@@ -1,7 +1,5 @@
 
- [Loom Video](https://www.loom.com/share/8d6862d6efda4af190f6c7f5cb69d9ae?sid=3b37b559-f0d7-4eff-be88-8b2342129c82) 
 
- [Google slides](https://docs.google.com/presentation/d/1hd_qo1lqOErU6JXG--Rhzte2uj7rZt5oQtberHcZtYk/edit?usp=sharing) 
 
 
 ### [JSL11] Agile Board - Kanban Task Management App
